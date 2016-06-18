@@ -51,11 +51,11 @@ for line in f.readlines():
         status = 1
         for m in modList:
             nf.append('''#include "game/server/gameMods/''' + m[0] + '''/mod.h"\n''')
-            nf.append(m[0] + ' m_' + m[0]+ ';\n')
+            nf.append(m[1][0] + ' m_' + m[1][0] + ';\n')
     if line.startswith('//@MODLOADER_ADD'):
         status = 1
         for m in modList:
-            nf.append('''(*modLoaderGetter::modloader_main) += &m_''' + m[0] + ';\n')
+            nf.append('''(*modLoaderGetter::modloader_main) += &m_''' + m[1][0] + ';\n')
 f.close()
 f = open("./src/game/server/gamemodes/smod.cpp", "w")
 f.writelines(nf)

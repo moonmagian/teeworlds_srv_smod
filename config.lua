@@ -1,0 +1,15 @@
+compiler.driver = 'clang'
+compiler.c_compiler = false
+compiler.cxx_compiler = false
+stackprotector.value = true
+minmacosxsdk.value = false
+macosxppc.value = false
+zlib.value = true
+zlib.include_path = false
+sdl.value = true
+sdl.use_sdlconfig = true
+sdl.use_winlib = 0
+sdl.use_osxframework = false
+freetype.value = true
+freetype.use_ftconfig = true
+freetype.use_winlib = 0

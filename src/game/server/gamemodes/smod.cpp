@@ -1,6 +1,7 @@
 /* (c) Magnus Auvinen. See licence.txt in the root of the distribution for more information. */
 /* If you are missing that file, acquire a complete release at teeworlds.com.                */
 #include "smod.h"
+#include <game/server/modloader/mod.h>
 #include "../modloader/modLoaderGetter.h"
 #include <iostream>
 #include <map>
@@ -9,10 +10,13 @@
 #include "game/server/gameMods/testMod/mod.h"
 testMod m_testMod;
 //@MODLOADER_END
+CGameContext* mod::gameServer;
+IServer* mod::server;
 CGameControllerSMod::CGameControllerSMod(class CGameContext *pGameServer)
         : IGameController(pGameServer)
 {
-    
+    mod::gameServer = GameServer();
+    mod::server = Server();
     m_GameFlags = GAMEFLAG_TEAMS;
     m_pGameType = "SMOD";
 //@MODLOADER_ADD

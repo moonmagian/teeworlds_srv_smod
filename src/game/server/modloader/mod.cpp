@@ -28,3 +28,10 @@ void mod::game_chat_makeBroadcast(const char *content, IServer *server){
     s.m_pMessage = aBuf;
     server->SendPackMsg(&s, 0, -1);
 }
+void mod::game_chat_makeBroadcast(const char *content,int cid, IServer *server) {
+    CNetMsg_Sv_Broadcast s;
+    char aBuf[256];
+    str_format(aBuf, sizeof(aBuf), content);
+    s.m_pMessage = aBuf;
+    server->SendPackMsg(&s, 0, cid);
+}

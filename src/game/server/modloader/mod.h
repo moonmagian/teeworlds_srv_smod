@@ -17,7 +17,8 @@ class mod {
 public:
     std::string modName;
     int modVerson;
-public:
+    static CGameContext* gameServer;
+    static IServer* server;
     //basic overridable APIs
     virtual void onKeyStatusChanged(modKeyStatus mks, CCharacter* character){};
     virtual void onCharacterSpawn(CCharacter* c, IGameController* igc){};
@@ -31,7 +32,8 @@ public:
     virtual CProjectile makeProjectile(CGameWorld *pGameWorld, int Type, int Owner, CPlayer* sender, vec2 Pos, vec2 Dir, int Span,
                                int Damage, bool Explosive, float Force, int SoundImpact, int Weapon, IServer* server);
     virtual void game_chat_makeBroadcast(const char *content, IServer *server);
-
+    virtual void game_chat_makeBroadcast(const char *content, int cid, IServer *server);
+//    virtual void game_chat_makeChat(CNetMsg_Sv_Chat* message, IServer *server);
 };
 
 
